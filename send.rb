@@ -19,3 +19,27 @@ account = Account.new
 account.assign_values(user_info)
 
 puts account.inspect
+
+
+class Car
+    def assign_values values
+        values.each do |k, v|
+            self.class.attr_accessor k
+            self.send("#{k}=", v)
+        end
+    end
+end
+
+car = Car.new
+puts car.inspect
+
+bmw = {
+    year: 2015,
+    brand: "BMW",
+    price: 20_000,
+    model: "XRV"
+}
+
+car.assign_values bmw
+
+puts car.inspect
