@@ -7,9 +7,9 @@ class String
 end
 
 String.add_new_method("Josh")
-String.send(:define_method, "cool"){
+String.send(:define_method, "full_name"){
   puts "Josh Gumerove"
 }
 
 "Gumerove".Josh
-"Gumerove".cool
+"Gumerove".full_name
