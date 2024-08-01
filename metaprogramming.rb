@@ -10,4 +10,10 @@ user_info = {
 }
 
 account = Account.new
-puts account
+
+account.name = user_info[:name]
+account.address = user_info[:address]
+account.email = user_info[:email]
+account.notes = user_info[:notes]
+
+puts account.inspect
