@@ -28,7 +28,13 @@ String.add_new_method("add_numbers") do |x, y|
   puts x + y
 end
 
+String.add_new_method("multiply_numbers") do |x, y, z|
+  puts "multiplying numers"
+  puts x * y * z
+end
+
 my_string.add_numbers(20, 40)
+my_string.multiply_numbers(2, 4, 6)
 
 def args_test(*args)
   context = {}
