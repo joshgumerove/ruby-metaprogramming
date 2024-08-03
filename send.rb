@@ -48,7 +48,7 @@ class Model
   @@all_fields = []
 
   def initialize
-    @fields = @all_fields
+    @fields = @@all_fields
   end
 
   def self.field(name)
@@ -61,8 +61,11 @@ class Model
   end
 end
 
-class Account < Model
+class InvestmentAccount < Model
   field :account
   field :address
   field :name
 end
+
+new_account = InvestmentAccount.new
+new_account.print
