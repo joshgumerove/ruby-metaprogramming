@@ -45,3 +45,41 @@ def args_test(*args)
 end
 
 args_test("First", "Second")
+
+class Model
+  @@all_fields = []
+
+  def self.field(name)
+    @@all_fields << name
+    send(:define_method, name) do 
+      @values[name]
+    end
+
+    send(:define_method, "#{name}=") do |value|
+      @values[name] = value
+    end
+  end
+
+  def initialize
+    @fields = @@all_fields
+    @values =  {}
+  end
+end
+
+class Account < Model
+  field :balance
+  field :address
+  field :name
+end
+
+test_account = Account.new
+
+test_account.balance = 1_000
+test_account.address= "1200 Somewhere Road"
+test_account.name= "Money Account"
+
+puts test_account.inspect
+
+puts test_account.balance
+
+

@@ -43,3 +43,26 @@ bmw = {
 car.assign_values bmw
 
 puts car.inspect
+
+class Model
+  @@all_fields = []
+
+  def initialize
+    @fields = @all_fields
+  end
+
+  def self.field(name)
+    @@all_fields << name
+    attr_accessor name
+  end
+
+  def print
+    @fields.each {|field| puts field}
+  end
+end
+
+class Account < Model
+  field :account
+  field :address
+  field :name
+end
